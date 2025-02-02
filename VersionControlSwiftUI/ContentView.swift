@@ -9,13 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "heart")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("First Commit")
+        VStack(spacing: 12){
+            Text("selam")
         }
-        .padding()
     }
 }
 
