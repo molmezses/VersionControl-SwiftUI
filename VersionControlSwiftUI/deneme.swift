@@ -1,2 +1,0 @@
-//selam
-//bir daha selam
