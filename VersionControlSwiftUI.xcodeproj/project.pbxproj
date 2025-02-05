@@ -6,13 +6,8 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		8EF639AB2D53A1C80039AEC0 /* ToogleBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF639AA2D53A1C80039AEC0 /* ToogleBC.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		8EB52D3C2D4FF6F800D90DE6 /* VersionControlSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VersionControlSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8EF639AA2D53A1C80039AEC0 /* ToogleBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToogleBC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -37,7 +32,6 @@
 		8EB52D332D4FF6F800D90DE6 = {
 			isa = PBXGroup;
 			children = (
-				8EF639AA2D53A1C80039AEC0 /* ToogleBC.swift */,
 				8EB52D3E2D4FF6F800D90DE6 /* VersionControlSwiftUI */,
 				8EB52D3D2D4FF6F800D90DE6 /* Products */,
 			);
@@ -126,7 +120,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EF639AB2D53A1C80039AEC0 /* ToogleBC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
