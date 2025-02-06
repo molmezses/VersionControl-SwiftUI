@@ -32,8 +32,8 @@
 		8EB52D332D4FF6F800D90DE6 = {
 			isa = PBXGroup;
 			children = (
-				8EB52D3E2D4FF6F800D90DE6 /* VersionControlSwiftUI */,
 				8EB52D3D2D4FF6F800D90DE6 /* Products */,
+				8EB52D3E2D4FF6F800D90DE6 /* VersionControlSwiftUI */,
 			);
 			sourceTree = "<group>";
 		};
