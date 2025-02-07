@@ -11,7 +11,7 @@ import SwiftUI
 struct VersionControlSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            AppStorageBC()
+            IntroView()
         }
     }
 }

@@ -21,6 +21,10 @@ struct OnBoardingView: View {
     @State var name: String = ""
     @State var age: Double = 30
     @State var gender: String = ""
+    @State var transition: AnyTransition = .asymmetric(
+        insertion: .move(edge: .trailing),
+        removal: .move(edge: .leading)
+    )
     
     var body: some View {
         ZStack {
@@ -30,12 +34,16 @@ struct OnBoardingView: View {
                 switch onBoardingState{
                 case 0:
                     welcomeSection
+                        .transition(transition)
                 case 1:
                     addNameSection
+                        .transition(transition)
                 case 2:
                     addAgeSection
+                        .transition(transition)
                 case 3:
                     addGenderSection
+                        .transition(transition)
                 default:
                     Text("No")
                 }
@@ -61,7 +69,8 @@ struct OnBoardingView: View {
 extension OnBoardingView{
     
     private var bottomButton: some View {
-        Text("Sign In")
+        Text(onBoardingState == 0 ? "Sign Up" :
+                onBoardingState == 3 ? "Finish" : "Next")
             .font(.headline)
             .foregroundStyle(.purple)
             .frame(height: 55)
@@ -150,9 +159,9 @@ extension OnBoardingView{
                 .font(.largeTitle)
                 .fontWeight(.semibold)
             Picker(selection: $gender) {
-                Text("Male").tag("Male")
-                Text("Female").tag("Female")
-                Text("Non-Binary").tag("NonBinary")
+                Text("Male").tag("Male").foregroundStyle(.white)
+                Text("Female").tag("Female").foregroundStyle(.white)
+                Text("Non-Binary").tag("NonBinary").foregroundStyle(.white)
             } label: {
                 Text("Select a gender")
                     .font(.headline)
@@ -177,8 +186,18 @@ extension OnBoardingView{
 //MARK: FUNCTİONS
 extension OnBoardingView{
     func handleNextButtonPressed(){
-        withAnimation(.spring){
-            onBoardingState += 1
+        
+        //CHECK INPUTS
+        
+        
+        //GO TO NEXT SECTİON
+        if onBoardingState == 3{
+            //sign in
+        }else{
+            withAnimation(.spring){
+                onBoardingState += 1
+            }
         }
+        
     }
 }
