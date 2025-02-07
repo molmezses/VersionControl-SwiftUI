@@ -17,6 +17,7 @@ import SwiftUI
 
 struct OnBoardingView: View {
     
+    //Onboarding
     @State var onBoardingState: Int = 0
     @State var name: String = ""
     @State var age: Double = 30
@@ -25,6 +26,17 @@ struct OnBoardingView: View {
         insertion: .move(edge: .trailing),
         removal: .move(edge: .leading)
     )
+    
+    //Alert
+    @State var alertTitle: String = ""
+    @State var showAlert: Bool = false
+    
+    //AppStorage
+    @AppStorage("name") var currentUserName: String?
+    @AppStorage("age") var currentUserAge: Int?
+    @AppStorage("gender") var currentUserGender: String?
+    @AppStorage("signed_in") var currentUserSignedIn: Bool = false
+
     
     var body: some View {
         ZStack {
@@ -56,6 +68,9 @@ struct OnBoardingView: View {
             }
             .padding(30)
         }
+        .alert(isPresented: $showAlert) {
+            return Alert(title: Text(alertTitle))
+        }
     }
 }
 
@@ -72,7 +87,7 @@ extension OnBoardingView{
         Text(onBoardingState == 0 ? "Sign Up" :
                 onBoardingState == 3 ? "Finish" : "Next")
             .font(.headline)
-            .foregroundStyle(.purple)
+            .foregroundStyle(.teal)
             .frame(height: 55)
             .frame(maxWidth: .infinity)
             .background(.white)
@@ -188,16 +203,38 @@ extension OnBoardingView{
     func handleNextButtonPressed(){
         
         //CHECK INPUTS
-        
+        switch onBoardingState {
+        case 1:
+            guard name.count >= 3 else {
+                showAlert(title: "Your name must be at least 3 characters long!")
+                return
+            }
+        default:
+            break
+        }
         
         //GO TO NEXT SECTİON
         if onBoardingState == 3{
-            //sign in
+            signIn()
         }else{
             withAnimation(.spring){
                 onBoardingState += 1
             }
         }
         
+    }
+    
+    func showAlert(title:String){
+        alertTitle = title
+        showAlert.toggle()
+    }
+    
+    func signIn(){
+        currentUserAge = Int(age)
+        currentUserName = name
+        currentUserGender = gender
+        withAnimation(.spring){
+            currentUserSignedIn = true
+        }
     }
 }
